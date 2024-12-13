@@ -50,7 +50,7 @@
 
 
 
-import express from 'express';
+import express from 'express'
 import { createTask, getTasks, getTaskById, updateTask, deleteTask } from '../controllers/taskController.js';
 
 const router = express.Router();
