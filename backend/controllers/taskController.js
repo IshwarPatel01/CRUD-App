@@ -12,12 +12,28 @@ export const createTask = async (req, res) => {
 
 export const getTasks = async (req, res) => {
     try {
-        const tasks = await Task.find();
-        res.status(200).send(tasks);
+      // Fetch tasks from the database
+      const tasks = await Task.find();
+      
+      // Send the tasks in the response
+      res.status(200).json(tasks);
     } catch (error) {
-        res.status(500).send(error);
+      // Handle any errors that occur during the fetch
+      console.error(error);
+      res.status(500).json({ message: 'Error fetching tasks', error });
     }
-};
+  };
+  
+  
+
+// export const getTasks = (req, res) => {
+//     // Example: Fetch tasks from database (MongoDB)
+//   };
+  
+
+
+
+
 
 export const getTaskById = async (req, res) => {
     try {
